@@ -1,3 +1,13 @@
+:root{
+    --cor-primaria:#111845;
+    --cor-secundaria:#8b93c7;
+    --cor-fundo:
+    --cor-texto:
+}
+
+
+
+
 body{
     max-width: 100vw;
 }
