@@ -1,9 +1,9 @@
 :root {
-    --cor-primaria: #3f4a94;
-    --cor-secundaria: #40456b;
+    --cor-primaria: hsl(232, 74%, 62%);
+    --cor-secundaria: #0e1230;
     --cor-fundo: #8b93c7;
-    --cor-texto: #92a0f7;
-    --cor-contraste: #959ab4;
+    --cor-texto: #03071d;
+    --cor-contraste: #00051f;
     --cor-botao: #edeffa;
     --fonte-texto: 'Segoe UI', sans-serif;
 }
@@ -13,8 +13,8 @@
     --cor-primaria: #1d213f;
     --cor-secundaria: #1e31c5;
     --cor-fundo: #030827;
-    --cor-texto: #5260bd;
-    --cor-contraste: #4152a5;
+    --cor-texto: #6b78c9;
+    --cor-contraste: #7e8bcf;
     --cor-botao: #262731;
 
 }
