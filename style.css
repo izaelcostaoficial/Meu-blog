@@ -1,6 +1,6 @@
 :root {
     --cor-primaria: hsl(232, 74%, 62%);
-    --cor-secundaria: #0e1230;
+    --cor-secundaria: #c9cbda;
     --cor-fundo: #8b93c7;
     --cor-texto: #03071d;
     --cor-contraste: #00051f;
@@ -14,7 +14,7 @@
 
 .tema-escuro {
     --cor-primaria: #60668f;
-    --cor-secundaria: #5564d8;
+    --cor-secundaria: #c9cce7;
     --cor-fundo: #030827;
     --cor-texto: #6b78c9;
     --cor-contraste: #7e8bcf;
