@@ -8,14 +8,17 @@
     --fonte-texto: 'Segoe UI', sans-serif;
 }
 
+* {
+    transition: background-color 0.3s ease ;
+}
 
 .tema-escuro {
-    --cor-primaria: #1d213f;
+    --cor-primaria: #60668f;
     --cor-secundaria: #5564d8;
     --cor-fundo: #030827;
     --cor-texto: #6b78c9;
     --cor-contraste: #7e8bcf;
-    --cor-botao: #262731;
+    --cor-botao: #bdbecc;
 
 }
 
@@ -29,6 +32,10 @@
 
 .tema-escuro header p {
     color: var(--cor-contraste);
+}
+
+.tema-escuro .btn-tema-escuro{
+    background-color: var(--cor-secundaria);
 }
 
 body {
@@ -61,7 +68,7 @@ main {
 
 article {
     display: flex;
-    border: 1px solid var(--cor-texto);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     margin: 16px;
     gap: 16px;
     padding: 16px;
