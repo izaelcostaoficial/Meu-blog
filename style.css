@@ -1,100 +1,446 @@
 :root {
-    --cor-primaria: hsl(232, 74%, 62%);
-    --cor-secundaria: #4552b6;
-    --cor-fundo: #4b59b9;
-    --cor-texto: #03071d;
-    --cor-contraste: #00051f;
-    --cor-botao: #edeffa;
+    --cor-primaria: #4338ca;
+    --cor-primaria-hover: #3730a3;
+
+    --cor-fundo: #f8fafc;
+    --cor-superficie: #ffffff;
+
+    --cor-texto: #111827;
+    --cor-texto-secundario: #374151;
+
+    --cor-link: #1d4ed8;
+    --cor-link-hover: #1e40af;
+
+    --cor-borda: #cbd5e1;
+
+    --cor-botao: #eef2ff;
+    --cor-botao-hover: #e0e7ff;
+    --cor-botao-texto: #1e1b4b;
+
+    --cor-contraste: #ffffff;
+
+    --cor-foco: #f59e0b;
+
+    --cor-sombra: rgba(15, 23, 42, 0.15);
+
     --fonte-texto: 'Segoe UI', sans-serif;
 }
 
-* {
-    transition: background-color 0.3s ease ;
-}
+
+/* =========================
+   MODO ESCURO
+   ========================= */
 
 .tema-escuro {
-    --cor-primaria: #4e61e0;
-    --cor-secundaria: #858cce;
-    --cor-fundo: #030827;
-    --cor-texto: #6b78c9;
-    --cor-contraste: #3c4a8f;
-    --cor-botao: #515596;
+    --cor-primaria: #818cf8;
+    --cor-primaria-hover: #a5b4fc;
 
+    --cor-fundo: #0f172a;
+    --cor-superficie: #1e293b;
+
+    --cor-texto: #f8fafc;
+    --cor-texto-secundario: #e2e8f0;
+
+    --cor-link: #93c5fd;
+    --cor-link-hover: #bfdbfe;
+
+    --cor-borda: #475569;
+
+    --cor-botao: #334155;
+    --cor-botao-hover: #475569;
+    --cor-botao-texto: #f8fafc;
+
+    --cor-contraste: #0f172a;
+
+    --cor-foco: #fbbf24;
+
+    --cor-sombra: rgba(0, 0, 0, 0.45);
 }
 
-.tema-escuro a {
-    color: var(--cor-secundaria);
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+   ========================= */
+
+* {
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.tema-escuro p {
-    color: var(--cor-texto);
+
+html {
+    scroll-behavior: smooth;
 }
 
-.tema-escuro header p {
-    color: var(--cor-contraste);
-}
-
-.tema-escuro .btn-tema-escuro{
-    background-color: var(--cor-secundaria);
-}
 
 body {
     max-width: 100vw;
-    font-family: var(--fonte-texto)
+    min-height: 100vh;
+
+    margin: 0;
+
+    font-family: var(--fonte-texto);
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    line-height: 1.6;
 }
 
 
+/* =========================
+   CABEÇALHO
+   ========================= */
 
 header {
     background-color: var(--cor-primaria);
     color: var(--cor-contraste);
+
     text-align: center;
+
     margin: 0 auto;
-    padding: 16px;
+    padding: 24px 16px;
 }
 
 
+header h1 {
+    margin: 0 0 10px;
+
+    color: var(--cor-contraste);
+}
+
+
+header p {
+    margin: 0;
+
+    color: var(--cor-contraste);
+}
+
+
+/* =========================
+   ÁREA PRINCIPAL
+   ========================= */
+
 main {
     background-color: var(--cor-fundo);
-    color: var(--cor-secundaria);
+    color: var(--cor-texto);
+
     text-align: center;
+
     margin: 0 auto;
-    padding: 16px;
+    padding: 24px 16px;
 
     display: flex;
     flex-wrap: wrap;
 
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 8px;
 }
+
+
+/* =========================
+   ARTIGOS
+   ========================= */
 
 article {
     display: flex;
-    box-shadow: 2px 2px 10px rgba(36, 25, 138, 0.3);
-    margin: 16px;
+
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+
+    box-shadow: 2px 4px 12px var(--cor-sombra);
+
+    margin: 8px;
+    padding: 20px;
+
     gap: 16px;
-    padding: 16px;
 
     flex: 1 1 25%;
+    min-width: 280px;
+
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
 }
 
-img {
-    width: 80px;
-    height: 80px;
+
+article:hover {
+    box-shadow: 3px 6px 18px var(--cor-sombra);
+
+    transform: translateY(-2px);
 }
+
+
+article h2 {
+    color: var(--cor-texto);
+
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    line-height: 1.3;
+}
+
+
+article p {
+    color: var(--cor-texto-secundario);
+
+    line-height: 1.7;
+}
+
 
 .artigo-autor {
     font-weight: bold;
+
+    color: var(--cor-texto) !important;
 }
 
-.btn-tema-escuro{
+
+.artigo-fonte {
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   IMAGENS
+   ========================= */
+
+img {
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 2px solid var(--cor-borda);
+}
+
+
+/* =========================
+   LINKS
+   ========================= */
+
+a {
+    color: var(--cor-link);
+
+    font-weight: 600;
+
+    text-decoration: underline;
+}
+
+
+a:hover {
+    color: var(--cor-link-hover);
+}
+
+
+a:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 4px;
+
+    border-radius: 4px;
+}
+
+
+/* =========================
+   ÁREA DOS BOTÕES
+   ========================= */
+
+.acoes {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================
+   BOTÕES DE CURTIDA
+   ========================= */
+
+article button {
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    padding: 8px 14px;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+
+article button:hover {
+    background-color: var(--cor-botao-hover);
+
+    transform: translateY(-1px);
+}
+
+
+article button:active {
+    transform: scale(0.96);
+}
+
+
+article button:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+
+article button span {
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOTÃO DE TEMA
+   ========================= */
+
+.btn-tema-escuro {
     position: fixed;
+
     bottom: 16px;
-    right: 16px ;
-    font-size: 32px ;
-    padding: 12px;
-    background-color: var(--cor-primaria);
+    right: 16px;
+
+    z-index: 1000;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    font-size: 28px;
+    line-height: 1;
+
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
+
+    border: 2px solid var(--cor-borda);
     border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px var(--cor-sombra);
+}
+
+
+.btn-tema-escuro:hover {
+    background-color: var(--cor-botao-hover);
+
+    transform: scale(1.08);
+}
+
+
+.btn-tema-escuro:active {
+    transform: scale(0.95);
+}
+
+
+.btn-tema-escuro:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 4px;
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px 14px;
+    }
+
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+
+    main {
+        padding: 12px;
+    }
+
+
+    article {
+        flex: 1 1 100%;
+
+        min-width: 0;
+
+        margin: 8px 0;
+
+        padding: 18px;
+    }
+
+
+    article h2 {
+        font-size: 1.35rem;
+    }
+
+
+    article p {
+        font-size: 1rem;
+    }
+
+
+    .btn-tema-escuro {
+        width: 54px;
+        height: 54px;
+
+        bottom: 12px;
+        right: 12px;
+
+        font-size: 25px;
+    }
+}
+
+
+/* =========================
+   REDUZIR ANIMAÇÕES
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
 }
