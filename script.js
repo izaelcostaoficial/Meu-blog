@@ -1,15 +1,12 @@
+```javascript
 // ================================
 // MODO CLARO / MODO ESCURO
 // ================================
 
 const botaoTema = document.querySelector(".btn-tema-escuro");
 
-
-// Verifica se o usuário já escolheu um tema
 const temaSalvo = localStorage.getItem("tema");
 
-
-// Verifica a preferência do sistema
 const prefereEscuro = window.matchMedia(
     "(prefers-color-scheme: dark)"
 ).matches;
@@ -17,21 +14,32 @@ const prefereEscuro = window.matchMedia(
 
 // Define o tema inicial
 if (temaSalvo === "escuro") {
+
     document.body.classList.add("tema-escuro");
+
 } else if (temaSalvo === "claro") {
+
     document.body.classList.remove("tema-escuro");
+
 } else if (prefereEscuro) {
+
     document.body.classList.add("tema-escuro");
 }
 
 
-// Atualiza o texto de acessibilidade do botão
+// ================================
+// ATUALIZA BOTÃO DO TEMA
+// ================================
+
 function atualizarBotaoTema() {
 
     const modoEscuroAtivo =
         document.body.classList.contains("tema-escuro");
 
+
     if (modoEscuroAtivo) {
+
+        botaoTema.textContent = "☀️";
 
         botaoTema.setAttribute(
             "aria-label",
@@ -44,6 +52,8 @@ function atualizarBotaoTema() {
         );
 
     } else {
+
+        botaoTema.textContent = "🌙";
 
         botaoTema.setAttribute(
             "aria-label",
@@ -58,11 +68,14 @@ function atualizarBotaoTema() {
 }
 
 
-// Aplica o texto correto ao carregar
+// Aplica ao carregar
 atualizarBotaoTema();
 
 
-// Troca o tema
+// ================================
+// TROCAR TEMA
+// ================================
+
 botaoTema.addEventListener("click", () => {
 
     document.body.classList.toggle("tema-escuro");
@@ -72,7 +85,6 @@ botaoTema.addEventListener("click", () => {
         document.body.classList.contains("tema-escuro");
 
 
-    // Salva a escolha do usuário
     localStorage.setItem(
         "tema",
         modoEscuroAtivo ? "escuro" : "claro"
@@ -92,45 +104,158 @@ const artigos = document.querySelectorAll("article");
 
 artigos.forEach((artigo, indice) => {
 
-    const botoes = artigo.querySelectorAll(".acoes button");
+    const botoes =
+        artigo.querySelectorAll(".btn-reacao");
 
 
-    botoes.forEach((botao, tipo) => {
+    botoes.forEach((botao) => {
 
-        botao.addEventListener("click", () => {
+        const tipo =
+            botao.dataset.tipo;
 
-            const contador = botao.querySelector("span");
-
-            let quantidade = Number(contador.textContent);
-
-            quantidade++;
-
-            contador.textContent = quantidade;
+        const contador =
+            botao.querySelector("span");
 
 
-            // Salva a quantidade de curtidas
-            const chave = `blog-artigo-${indice}-reacao-${tipo}`;
-
-            localStorage.setItem(
-                chave,
-                quantidade
-            );
-        });
+        // Chave da quantidade total
+        const chaveQuantidade =
+            `blog-artigo-${indice}-${tipo}-quantidade`;
 
 
-        // Recupera curtidas salvas
-        const chave = `blog-artigo-${indice}-reacao-${tipo}`;
+        // Chave que identifica se ESTE navegador já reagiu
+        const chaveUsuario =
+            `blog-artigo-${indice}-${tipo}-usuario`;
+
+
+        // ================================
+        // CARREGAR QUANTIDADE
+        // ================================
 
         const quantidadeSalva =
-            localStorage.getItem(chave);
+            localStorage.getItem(chaveQuantidade);
 
 
         if (quantidadeSalva !== null) {
 
-            botao.querySelector("span").textContent =
+            contador.textContent =
                 quantidadeSalva;
+
+        } else {
+
+            contador.textContent = "0";
         }
+
+
+        // ================================
+        // CARREGAR REAÇÃO DA PESSOA
+        // ================================
+
+        const jaReagiu =
+            localStorage.getItem(chaveUsuario) === "true";
+
+
+        if (jaReagiu) {
+
+            botao.classList.add("ativo");
+
+            botao.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+        } else {
+
+            botao.classList.remove("ativo");
+
+            botao.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+        }
+
+
+        // ================================
+        // CLIQUE
+        // ================================
+
+        botao.addEventListener("click", () => {
+
+            let quantidade =
+                Number(contador.textContent);
+
+
+            const reagiu =
+                localStorage.getItem(chaveUsuario) === "true";
+
+
+            // ============================
+            // DESMARCAR
+            // ============================
+
+            if (reagiu) {
+
+                quantidade =
+                    Math.max(0, quantidade - 1);
+
+
+                localStorage.setItem(
+                    chaveQuantidade,
+                    quantidade
+                );
+
+
+                localStorage.removeItem(
+                    chaveUsuario
+                );
+
+
+                botao.classList.remove("ativo");
+
+
+                botao.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+            }
+
+
+            // ============================
+            // MARCAR
+            // ============================
+
+            else {
+
+                quantidade++;
+
+
+                localStorage.setItem(
+                    chaveQuantidade,
+                    quantidade
+                );
+
+
+                localStorage.setItem(
+                    chaveUsuario,
+                    "true"
+                );
+
+
+                botao.classList.add("ativo");
+
+
+                botao.setAttribute(
+                    "aria-pressed",
+                    "true"
+                );
+            }
+
+
+            // Atualiza contador na tela
+            contador.textContent =
+                quantidade;
+        });
 
     });
 
 });
+```
