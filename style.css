@@ -1,3 +1,4 @@
+```css
 :root {
     --cor-primaria: #4338ca;
     --cor-primaria-hover: #3730a3;
@@ -41,8 +42,8 @@
     --cor-texto: #f8fafc;
     --cor-texto-secundario: #e2e8f0;
 
-    --cor-link: #93c5fd;
-    --cor-link-hover: #bfdbfe;
+    --cor-link: #bfdbfe;
+    --cor-link-hover: #ffffff;
 
     --cor-borda: #475569;
 
@@ -110,14 +111,12 @@ header {
 
 header h1 {
     margin: 0 0 10px;
-
     color: var(--cor-contraste);
 }
 
 
 header p {
     margin: 0;
-
     color: var(--cor-contraste);
 }
 
@@ -177,7 +176,6 @@ article {
 
 article:hover {
     box-shadow: 3px 6px 18px var(--cor-sombra);
-
     transform: translateY(-2px);
 }
 
@@ -201,7 +199,6 @@ article p {
 
 .artigo-autor {
     font-weight: bold;
-
     color: var(--cor-texto) !important;
 }
 
@@ -284,6 +281,8 @@ article button {
 
     padding: 8px 14px;
 
+    min-height: 42px;
+
     font-size: 1rem;
 
     cursor: pointer;
@@ -310,6 +309,26 @@ article button:focus-visible {
 
 article button span {
     font-weight: bold;
+}
+
+
+/* =========================
+   REAÇÃO ATIVA
+   ========================= */
+
+article button.ativo {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+
+    border-color: var(--cor-primaria);
+
+    font-weight: bold;
+}
+
+
+article button.ativo:hover {
+    background-color: var(--cor-primaria-hover);
+    color: #ffffff;
 }
 
 
@@ -351,7 +370,6 @@ article button span {
 
 .btn-tema-escuro:hover {
     background-color: var(--cor-botao-hover);
-
     transform: scale(1.08);
 }
 
@@ -444,3 +462,4 @@ article button span {
         animation: none !important;
     }
 }
+```
