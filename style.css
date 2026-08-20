@@ -1,0 +1,456 @@
+:root {
+    --cor-primaria: #4338ca;
+    --cor-primaria-hover: #3730a3;
+
+    --cor-fundo: #f8fafc;
+    --cor-superficie: #ffffff;
+
+    --cor-texto: #111827;
+    --cor-texto-secundario: #374151;
+
+    --cor-link: #1d4ed8;
+    --cor-link-hover: #1e40af;
+
+    --cor-contraste: #ffffff;
+
+    --cor-botao: #eef2ff;
+    --cor-botao-hover: #dbeafe;
+    --cor-botao-texto: #1e1b4b;
+
+    --cor-borda: #cbd5e1;
+
+    --cor-foco: #f59e0b;
+
+    --cor-sombra: rgba(15, 23, 42, 0.15);
+
+    --fonte-texto: 'Segoe UI', sans-serif;
+}
+
+
+/* ==============================
+   MODO ESCURO
+   ============================== */
+
+.tema-escuro {
+    --cor-primaria: #6366f1;
+    --cor-primaria-hover: #818cf8;
+
+    --cor-fundo: #0f172a;
+    --cor-superficie: #1e293b;
+
+    --cor-texto: #f8fafc;
+    --cor-texto-secundario: #e2e8f0;
+
+    --cor-link: #93c5fd;
+    --cor-link-hover: #dbeafe;
+
+    --cor-contraste: #ffffff;
+
+    --cor-botao: #334155;
+    --cor-botao-hover: #475569;
+    --cor-botao-texto: #ffffff;
+
+    --cor-borda: #64748b;
+
+    --cor-foco: #fbbf24;
+
+    --cor-sombra: rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+   ============================== */
+
+* {
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+
+    margin: 0;
+
+    font-family: var(--fonte-texto);
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   CABEÇALHO
+   ============================== */
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-contraste);
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    padding: 24px 16px;
+}
+
+
+header h1 {
+    margin-top: 0;
+
+    color: #ffffff;
+}
+
+
+header p {
+    margin-bottom: 0;
+
+    color: #ffffff;
+}
+
+
+/* ==============================
+   ÁREA PRINCIPAL
+   ============================== */
+
+main {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    text-align: center;
+
+    margin: 0 auto;
+    padding: 24px 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 8px;
+}
+
+
+/* ==============================
+   ARTIGOS
+   ============================== */
+
+article {
+    display: flex;
+
+    flex: 1 1 25%;
+    min-width: 280px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 8px;
+
+    padding: 20px;
+
+    gap: 16px;
+
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+
+    box-shadow: 2px 4px 12px var(--cor-sombra);
+}
+
+
+article:hover {
+    box-shadow: 3px 6px 18px var(--cor-sombra);
+}
+
+
+article h2 {
+    color: var(--cor-texto);
+
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    line-height: 1.3;
+}
+
+
+article p {
+    color: var(--cor-texto-secundario);
+
+    line-height: 1.7;
+}
+
+
+.artigo-autor {
+    font-weight: bold;
+
+    color: var(--cor-texto) !important;
+}
+
+
+.artigo-fonte {
+    font-size: 0.9rem;
+}
+
+
+/* ==============================
+   IMAGENS
+   ============================== */
+
+img {
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 2px solid var(--cor-borda);
+}
+
+
+/* ==============================
+   LINKS
+   ============================== */
+
+a {
+    color: var(--cor-link);
+
+    font-weight: 600;
+
+    text-decoration: underline;
+}
+
+
+a:hover {
+    color: var(--cor-link-hover);
+}
+
+
+a:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 4px;
+
+    border-radius: 4px;
+}
+
+
+/* ==============================
+   BOTÕES 👍 ❤️
+   ============================== */
+
+article button {
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    padding: 8px 12px;
+
+    min-height: 42px;
+
+    margin-top: 8px;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+
+article button:hover {
+    background-color: var(--cor-botao-hover);
+
+    transform: translateY(-1px);
+}
+
+
+article button:active {
+    transform: scale(0.96);
+}
+
+
+article button:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+
+article button span {
+    font-weight: bold;
+}
+
+
+/* ==============================
+   REAÇÃO MARCADA
+   ============================== */
+
+article button.reagiu {
+    background-color: var(--cor-primaria);
+
+    color: #ffffff;
+
+    border-color: var(--cor-primaria);
+
+    font-weight: bold;
+
+    box-shadow: 0 3px 8px var(--cor-sombra);
+}
+
+
+article button.reagiu:hover {
+    background-color: var(--cor-primaria-hover);
+
+    color: #ffffff;
+}
+
+
+/* ==============================
+   BOTÃO DO TEMA
+   ============================== */
+
+.btn-tema-escuro {
+    position: fixed;
+
+    bottom: 16px;
+    right: 16px;
+
+    z-index: 1000;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    font-size: 30px;
+    line-height: 1;
+
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
+
+    border: 2px solid var(--cor-borda);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px var(--cor-sombra);
+}
+
+
+.btn-tema-escuro:hover {
+    background-color: var(--cor-botao-hover);
+
+    transform: scale(1.05);
+}
+
+
+.btn-tema-escuro:active {
+    transform: scale(0.95);
+}
+
+
+.btn-tema-escuro:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 4px;
+}
+
+
+/* ==============================
+   CELULAR
+   ============================== */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px 14px;
+    }
+
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+
+    main {
+        padding: 12px;
+    }
+
+
+    article {
+        flex: 1 1 100%;
+
+        min-width: 0;
+
+        margin: 8px 0;
+
+        padding: 18px;
+    }
+
+
+    article h2 {
+        font-size: 1.35rem;
+    }
+
+
+    article p {
+        font-size: 1rem;
+    }
+
+
+    .btn-tema-escuro {
+        width: 54px;
+        height: 54px;
+
+        bottom: 12px;
+        right: 12px;
+
+        font-size: 26px;
+    }
+}
+
+
+/* ==============================
+   REDUZIR MOVIMENTO
+   ============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
